@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Лента записей{% endblock title %}
+{% block content %}
+  <h1>Лента записей</h1>
+  {% for post in posts reversed %}
+  {% include 'post_content.html' %}
+  {% endfor %}
+{% endblock %}
