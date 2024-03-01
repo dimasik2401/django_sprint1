@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
+
 posts = [
     {
         'id': 0,
@@ -42,9 +43,11 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-] 
+]
+
 
 posts_ids = {post['id']: post for post in posts}
+
 
 def index(request):
     template = 'blog/index.html'
@@ -52,6 +55,7 @@ def index(request):
         'posts': posts
     }
     return render(request, template, context)
+
 
 def post_detail(request, id):
     if id not in posts_ids:
@@ -61,6 +65,7 @@ def post_detail(request, id):
         'post': posts_ids[id]
     }
     return render(request, template, context)
+
 
 def category_posts(request, category_slug):
     template = 'blog/category.html'
