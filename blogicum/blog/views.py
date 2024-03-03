@@ -57,12 +57,12 @@ def index(request):
     return render(request, template, context)
 
 
-def post_id(request, id):
-    if id not in posts_ids:
+def post_detail(request, post_id):
+    if post_id not in posts_ids:
         raise Http404(f'The requested post {id} is not found')
     template = 'blog/detail.html'
     context = {
-        'post': posts_ids[id]
+        'post': posts_ids[post_id]
     }
     return render(request, template, context)
 
