@@ -52,12 +52,12 @@ posts_ids = {post['id']: post for post in posts}
 def index(request):
     template = 'blog/index.html'
     context = {
-        'posts': posts
+        'posts': posts.__reversed__
     }
     return render(request, template, context)
 
 
-def post_detail(request, id):
+def post_id(request, id):
     if id not in posts_ids:
         raise Http404(f'The requested post {id} is not found')
     template = 'blog/detail.html'
