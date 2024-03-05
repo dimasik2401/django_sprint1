@@ -60,7 +60,7 @@ def index(request):
 
 def post_detail(request, post_id):
     if post_id not in POSTS_IDS:
-        raise Http404('Страница не найдена!')
+        raise Http404(f'The requested post {post_id} is not found')
     template = 'blog/detail.html'
     context = {
         'post': POSTS_IDS[post_id]
